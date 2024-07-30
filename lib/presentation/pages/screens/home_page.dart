@@ -238,6 +238,20 @@ class _HomePageState extends State<HomePage> {
                 buildTopSalesItem('Arm Chair', '\$124.00'),
               ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                buildTopSalesItem('Arm Chair', '\$124.00'),
+                buildTopSalesItem('Arm Chair', '\$124.00'),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                buildTopSalesItem('Arm Chair', '\$124.00'),
+                buildTopSalesItem('Arm Chair', '\$124.00'),
+              ],
+            ),
           ],
         ),
       ),
