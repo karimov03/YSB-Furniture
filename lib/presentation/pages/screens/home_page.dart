@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:ysb_furniture_app/presentation/pages/screens/cart_page.dart';
 import 'package:ysb_furniture_app/presentation/pages/screens/profile_page.dart';
@@ -6,6 +5,7 @@ import 'package:ysb_furniture_app/presentation/pages/screens/store_page.dart';
 
 import '../../widgets/chip.dart';
 import '../../widgets/top_sales_item.dart';
+import '../product/product_page.dart';
 import 'favorites_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF0F0F0),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -121,43 +121,54 @@ class _HomePageState extends State<HomePage> {
                   ),
                   children: [
                     TextSpan(text: 'New collection\n'),
-                    TextSpan(text: 'with ',
+                    TextSpan(
+                        text: 'with ',
                         style: TextStyle(fontWeight: FontWeight.w600)),
                     TextSpan(
                       text: '15% ',
                       style: TextStyle(
                           color: Colors.orange, fontWeight: FontWeight.w600),
                     ),
-                    TextSpan(text: 'discount',
+                    TextSpan(
+                        text: 'discount',
                         style: TextStyle(fontWeight: FontWeight.w600)),
                   ],
                 ),
               ),
             ),
             SizedBox(height: 16),
-            Stack(children: [
-              Container(
-                height: 200,
-                color: Colors.grey[300],
-                child: Center(
-                  child: Text('Image Placeholder'),
-                ),
-              ),
-              Container(
-                height: 220,
-                alignment: Alignment.bottomCenter,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text('Shop now'),
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
+            Stack(
+              children: [
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>ProductPage()));
+                  },
+                  child: Container(
+                    height: 200,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
                       borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Center(
+                      child: Icon(Icons.image, color: Colors.grey,size: 32,),
                     ),
                   ),
                 ),
-              ),
-            ],),
-
+                Container(
+                  height: 220,
+                  alignment: Alignment.bottomCenter,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Shop now'),
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
             SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -178,13 +189,20 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
+      GestureDetector(
+        onTap: (){
+          Navigator.push(context,MaterialPageRoute(builder: (context)=>ProductPage()));
+        },
+        child:
             Container(
-              height: 150,
+              height: 150,decoration: BoxDecoration(
               color: Colors.grey[300],
-              child: Center(
-                child: Text('Image Placeholder'),
-              ),
+              borderRadius: BorderRadius.circular(8),
             ),
+              child: Center(
+                child: Icon(Icons.image, color: Colors.grey,size: 32,),
+              ),
+            ),),
             SizedBox(height: 16),
             Container(
               width: double.maxFinite,
@@ -194,7 +212,6 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.grey,
-
                 ),
               ),
             ),
@@ -234,22 +251,22 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                buildTopSalesItem('Arm Chair', '\$124.00'),
-                buildTopSalesItem('Arm Chair', '\$124.00'),
+                buildTopSalesItem(context,'Arm Chair', '\$124.00'),
+                buildTopSalesItem(context,'Arm Chair', '\$124.00'),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                buildTopSalesItem('Arm Chair', '\$124.00'),
-                buildTopSalesItem('Arm Chair', '\$124.00'),
+                buildTopSalesItem(context,'Arm Chair', '\$124.00'),
+                buildTopSalesItem(context,'Arm Chair', '\$124.00'),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                buildTopSalesItem('Arm Chair', '\$124.00'),
-                buildTopSalesItem('Arm Chair', '\$124.00'),
+                buildTopSalesItem(context,'Arm Chair', '\$124.00'),
+                buildTopSalesItem(context,'Arm Chair', '\$124.00'),
               ],
             ),
           ],
@@ -258,4 +275,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-

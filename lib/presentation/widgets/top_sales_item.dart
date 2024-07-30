@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 
-Widget buildTopSalesItem(String name, String price) {
+import '../pages/product/product_page.dart';
+
+Widget buildTopSalesItem(BuildContext context,String name, String price) {
   return Expanded(
     child: Padding(
       padding: const EdgeInsets.all(10.0),
@@ -13,15 +15,19 @@ Widget buildTopSalesItem(String name, String price) {
           borderRadius: BorderRadius.circular(10.0)
         ),
         child: Column(
-          children: [
+          children: [GestureDetector(
+            onTap: (){
+      Navigator.push(context,MaterialPageRoute(builder: (context)=>ProductPage()));
+      },
+        child:
             Container(
               alignment: Alignment.center,
               height: 120,
               width: 100,
-              child: Text('Image Placeholder',textAlign: TextAlign.center,),
+              child: Icon(Icons.image, color: Colors.grey,size: 32,),
             ),
+          ),
             SizedBox(height: 4),
-            
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
